@@ -1,23 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // <-- IMPORTAR RouterModule AQUI
 
-// Importa o componente LandingPageComponent. O nome da classe gerada pelo Angular é 'LandingPageComponent'.
+// Importa o componente LandingPage.
 import { LandingPage } from './landing.page';
 
 // Importa o módulo de roteamento da landing page.
 import { LandingPageRoutingModule } from './landing.page.routing.module';
 
+// Importa o SharedModule para reutilizar componentes e módulos comuns, como o cabeçalho.
+// Certifique-se de que o caminho para o seu SharedModule está correto.
+// import { SharedModule } from '../shared/shared.module'; // Descomente e ajuste o caminho se for usar
+
 @NgModule({
   declarations: [
-    // Declara o LandingPageComponent neste módulo.
-    LandingPage
+    // Componentes que NÃO são standalone DEVEM ser declarados aqui.
+    LandingPage,
   ],
   imports: [
     CommonModule, // Necessário para diretivas como *ngIf, *ngFor
-    LandingPageRoutingModule // Importa as rotas definidas para a landing page
+    LandingPageRoutingModule, // Importa as rotas definidas para a landing page
+    RouterModule, // <-- ADICIONAR RouterModule AQUI para que routerLink funcione
+    // SharedModule // Adicione aqui se for usar e já tiver descomentado a importação acima
   ],
-  // Se este módulo precisar exportar componentes para serem usados por outros módulos,
-  // eles seriam listados aqui. Para um módulo de rota principal como este, geralmente não é necessário.
-  // exports: [LandingPageComponent]
+  // Garante que o módulo LandingPageModule seja exportado
+  exports: [
+    // Se LandingPageModule for carregado ansiosamente, não precisa de exports aqui
+    // Mas para garantir que a classe LandingPageModule seja exportada, mantemos a declaração da classe.
+  ],
 })
-export class LandingPageModule { }
+export class LandingPageModule {} // <-- GARANTIR 'export' AQUI
