@@ -10,11 +10,11 @@ Marque [x] para as tarefas concluídas.
 
 [ ] 2. Implementação da Landing Page (LandingPageComponent):
 * [x ] Crie o componente: ng generate component landing-page
-* [ ] Código TS (landing-page.component.ts): Implemente a lógica do carrossel (adapte sua classe Carousel e carouselData para o TypeScript do componente). Use URLs de placeholder para as imagens por enquanto.
-* [ ] Código HTML (landing-page.component.html): Estruture o carrossel/vídeo e adicione o botão "Entrar no Sistema".
+* [ x] Código TS (landing-page.component.ts): Implemente a lógica do carrossel (adapte sua classe Carousel e carouselData para o TypeScript do componente). Use URLs de placeholder para as imagens por enquanto.
+* [x ] Código HTML (landing-page.component.html): Estruture o carrossel/vídeo e adicione o botão "Entrar no Sistema".
 * [ ] Código CSS (landing-page.component.css): Estilize a Landing Page, garantindo responsividade e os requisitos de "divs 90% da largura do main".
-* [ ] Ajuste do Roteamento (app-routing.module.ts): Defina a Landing Page como a rota padrão (path: '').
-* [ ] Atualize app.module.ts: Declare LandingPageComponent em declarations.
+* [x ] Ajuste do Roteamento (app-routing.module.ts): Defina a Landing Page como a rota padrão (path: '').
+* [x ] Atualize app.module.ts: Declare LandingPageComponent em declarations.
 
 [ ] 3. Preparação da Tela de Login (LoginComponent):
 * [ ] Adicione um botão "Cadastre-se" no template (login.html).

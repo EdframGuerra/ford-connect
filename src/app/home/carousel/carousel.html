@@ -1,0 +1,56 @@
+<div class="home-carousel-wrapper">
+  <!-- Carrossel de imagens de veículos para a Home do Usuário Comum -->
+  <!-- Este carrossel pode focar em promoções, modelos recentes ou destaques. -->
+  <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-3 shadow-lg">
+      <div class="carousel-item active">
+        <!-- Imagem 1: Ranger -->
+        <!-- Caminho da imagem corrigido para 'ranger.jpg' (diretamente da pasta public) -->
+        <img src="ranger.png" class="d-block w-100" alt="Ford Ranger">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Ford Ranger: A Força que Você Conhece</h5>
+          <p>Potência e robustez para qualquer desafio.</p>
+          <a [routerLink]="['/sales']" class="btn btn-primary btn-sm">Ver Detalhes</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!-- Imagem 2: Mustang -->
+        <!-- Caminho da imagem corrigido para 'mustang.jpg' -->
+        <img src="mustang.png" class="d-block w-100" alt="Ford Mustang">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Ford Mustang: Ícone de Performance</h5>
+          <p>Design lendário e emoção ao dirigir.</p>
+          <a [routerLink]="['/sales']" class="btn btn-primary btn-sm">Conferir Modelos</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!-- Imagem 3: Bronco Sport -->
+        <!-- Caminho da imagem corrigido para 'broncoSport.jpg' -->
+        <img src="broncoSport.png" class="d-block w-100" alt="Ford Bronco Sport">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Ford Bronco Sport: Aventura Sem Limites</h5>
+          <p>Pronto para explorar novos horizontes.</p>
+          <a [routerLink]="['/sales']" class="btn btn-primary btn-sm">Descobrir</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!-- Imagem 4: Territory -->
+        <!-- Caminho da imagem corrigido para 'territory.jpg' -->
+        <img src="territory.png" class="d-block w-100" alt="Ford Territory">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Ford Territory: Conforto e Tecnologia</h5>
+          <p>O SUV ideal para a sua família e o dia a dia.</p>
+          <a [routerLink]="['/sales']" class="btn btn-primary btn-sm">Saiba Mais</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</div>
