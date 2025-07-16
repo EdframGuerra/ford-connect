@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppStateService } from '../services/app.state.service';
 
 @Component({
   selector: 'app-landing-page', // O seletor permanece 'app-landing-page'
-  standalone:false,
+  standalone: false,
   templateUrl: './landing.page.html', // O template é 'landing.page.html'
   styleUrls: ['./landing.page.css'], // O estilo é 'landing.page.css'
 })
@@ -11,24 +12,38 @@ import { Router } from '@angular/router';
 export class LandingPage implements OnInit, OnDestroy {
   // Propriedade para controlar a visibilidade e habilitação do link manual
   isLinkEnabled: boolean = false;
-  // Propriedade para exibir o tempo restante (para o redirecionamento automático final)
-  countdown: number = 90; // Inicia em 90 segundos (duração total do vídeo)
+  // Propriedade para o tempo total de redirecionamento automático (o número não será exibido no HTML)
+  // Mantido em 90s para o setTimeout final.
+  countdown: number = 90;
 
   private countdownInterval: any; // Variável para armazenar o ID do intervalo do contador
 
-  constructor(private router: Router, private renderer: Renderer2) {}
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+    private appStateService: AppStateService // Injetar o AppStateService
+  ) {}
 
   ngOnInit(): void {
     // Adiciona uma classe ao body para estilos específicos da landing page
     this.renderer.addClass(document.body, 'landing-page-background');
 
-    // Inicia o contador regressivo para o redirecionamento automático final
-    this.startCountdown();
+    // Inicia um contador interno para a lógica do setTimeout de 90s.
+    // O countdown exibido no HTML não é mais atualizado a cada segundo.
+    let internalCountdown = 90;
+    this.countdownInterval = setInterval(() => {
+      if (internalCountdown > 0) {
+        internalCountdown--;
+      } else {
+        clearInterval(this.countdownInterval);
+      }
+    }, 1000);
 
     // Define um temporizador para habilitar o link manual após 30 segundos
     setTimeout(() => {
       this.isLinkEnabled = true; // Habilita a mensagem com o link "clique aqui"
-      console.log('Link manual habilitado após 30 segundos.');
+      this.appStateService.enableMenu(); // HABILITA O MENU PRINCIPAL
+      console.log('Link manual e menu principal habilitados após 30 segundos.');
     }, 30000); // 30000 milissegundos = 30 segundos
 
     // Define um temporizador para redirecionar automaticamente para a Home
@@ -56,18 +71,16 @@ export class LandingPage implements OnInit, OnDestroy {
   }
 
   /**
-   * Inicia o contador regressivo, atualizando a cada segundo.
-   * Este contador agora reflete o tempo total até o redirecionamento automático.
+   * Manipula o clique no link "clique aqui".
+   * Impede a navegação se o link ainda não estiver habilitado.
+   * @param event O evento de clique.
    */
-  startCountdown(): void {
-    this.countdownInterval = setInterval(() => {
-      if (this.countdown > 0) {
-        this.countdown--;
-      } else {
-        // O contador chegou a zero, limpa o intervalo.
-        // O redirecionamento automático já será tratado pelo setTimeout de 90s.
-        clearInterval(this.countdownInterval);
-      }
-    }, 1000); // Atualiza a cada 1 segundo
+  handleLinkClick(event: Event): void {
+    // <-- MÉTODO ADICIONADO/RESTAURADO
+    if (!this.isLinkEnabled) {
+      event.preventDefault(); // Impede a navegação se o link estiver desabilitado
+      console.log('O link ainda não está habilitado. Aguarde 30 segundos.');
+      // Opcional: Adicionar um feedback visual para o usuário.
+    }
   }
 }

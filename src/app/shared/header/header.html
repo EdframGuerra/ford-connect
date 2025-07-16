@@ -1,0 +1,68 @@
+<div class="app-header-container">
+  <div class="main-header-content">
+    <!-- Logo da Ford no cabeçalho -->
+    <div class="main-header-logo">
+      <!-- Ajuste o caminho da imagem conforme sua estrutura de assets (ex: 'assets/ford-96.png') -->
+      <img src="ford-96.png" alt="Logo Ford" />
+    </div>
+
+    <!-- Menu de navegação principal (pode ser oculto em mobile e revelado pela sidebar) -->
+    <nav class="main-nav d-none d-md-block">
+      <ul class="nav-list">
+        <li>
+          <!-- Link para Home. Será habilitado/desabilitado via lógica TS. -->
+          <a
+            [routerLink]="isHomeLinkEnabled ? ['/home'] : null"
+            [class.disabled-link]="!isHomeLinkEnabled"
+            [attr.tabindex]="isHomeLinkEnabled ? null : -1"
+            (click)="handleHomeLinkClick($event)"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <!-- Link para Dashboard (sempre habilitado, mas protegido por AuthGuard) -->
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+        <!-- Adicione outros links aqui conforme o plano (Vendas, Comparativa, Fale Conosco, Área do Usuário) -->
+      </ul>
+    </nav>
+
+    <!-- Ícone de menu hambúrguer para mobile (pode abrir a sidebar) -->
+    <div class="menu-open-icon d-md-none" (click)="toggleSidebar()">
+      &#9776; <!-- Caractere Unicode para o ícone de hambúrguer -->
+    </div>
+  </div>
+
+  <!-- Sidebar (menu lateral) -->
+  <!-- A classe 'sidebar-collapsed' controla o estado recolhido/expandido -->
+  <div class="sidebar" [ngClass]="{'sidebar-collapsed': !isSidebarOpen, 'sidebar-expanded': isSidebarOpen}" (mouseenter)="openSidebar()" (mouseleave)="closeSidebar()">
+    <div class="sidebar-header">
+      <div class="sidebar-logo-wrapper">
+        <!-- Logo Ford na sidebar -->
+        <img class="sidebar-logo" src="ford-96.png" alt="Logo Ford" />
+      </div>
+      <!-- Botão para fechar a sidebar (opcional, se a sidebar for clicável para fechar) -->
+      <!-- <button class="sidebar-close-btn" (click)="closeSidebar()" aria-label="Close Sidebar">X</button> -->
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- Links de navegação na sidebar -->
+      <a
+        [routerLink]="isHomeLinkEnabled ? ['/home'] : null"
+        [class.disabled-link]="!isHomeLinkEnabled"
+        [attr.tabindex]="isHomeLinkEnabled ? null : -1"
+        (click)="handleHomeLinkClick($event)"
+      >
+        Home
+      </a>
+      <a [routerLink]="['/dashboard']">Dashboard</a>
+      <a [routerLink]="['/login']">Login</a>
+      <!-- Adicione outros links aqui para Vendas, Comparativa, Fale Conosco, Área do Usuário -->
+    </nav>
+  </div>
+
+  <!-- Overlay que aparece quando a sidebar está aberta (para fechar ao clicar fora) -->
+  <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+</div>
+
