@@ -1,7 +1,7 @@
 Plano de Ação Detalhado (Tarefas):
 Marque [x] para as tarefas concluídas.
 
-[ ] 1. Configuração Inicial do Projeto Angular:
+[ok] 1. Configuração Inicial do Projeto Angular:
 * [X ] Crie o projeto Angular: ng new desafio-final-senai-ford-enter --routing --strict --no-standalone
 * [X ] Entre na pasta do projeto: cd desafio-final-senai-ford-enter
 * [X ] Instale Bootstrap (se for a escolha principal de UI): npm install bootstrap@5.3.7 (lembre-se de configurar no angular.json ou importar no styles.css global).
@@ -9,7 +9,7 @@ Marque [x] para as tarefas concluídas.
 * [ X] Crie o repositório no GitHub e faça o primeiro commit.
 
 [ ] 2. Implementação da Landing Page (LandingPageComponent):
-* [ ] Crie o componente: ng generate component landing-page
+* [x ] Crie o componente: ng generate component landing-page
 * [ ] Código TS (landing-page.component.ts): Implemente a lógica do carrossel (adapte sua classe Carousel e carouselData para o TypeScript do componente). Use URLs de placeholder para as imagens por enquanto.
 * [ ] Código HTML (landing-page.component.html): Estruture o carrossel/vídeo e adicione o botão "Entrar no Sistema".
 * [ ] Código CSS (landing-page.component.css): Estilize a Landing Page, garantindo responsividade e os requisitos de "divs 90% da largura do main".

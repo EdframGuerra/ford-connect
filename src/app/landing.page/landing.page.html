@@ -1,0 +1,33 @@
+<main class="container-fluid d-flex flex-column align-items-center justify-content-center min-vh-100 p-4">
+  <div class="d-flex flex-column align-items-center w-100" style="max-width: 1000px;">
+    <div class="position-relative w-100 overflow-hidden rounded-3 shadow-lg mb-4" style="max-width: 800px;">
+
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.youtube.com/embed/vQsryuNmsL0?autoplay=1&mute=1&loop=1&playlist=vQsryuNmsL0&controls=0&modestbranding=1&showinfo=0&rel=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="w-100 h-100"
+        ></iframe>
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
+      </div>
+    </div>
+
+    <div class="text-center bg-white p-5 rounded-3 shadow-lg" style="width: 90%; max-width: 500px;">
+      <h1 class="display-4 fw-bold text-primary mb-3">Bem-vindo à Ford!</h1>
+      <p class="lead text-secondary mb-4">Descubra o futuro da mobilidade e gerencie seus veículos.</p>
+
+
+      <div *ngIf="!allowNavigation" class="text-info mb-3">
+        Aguarde {{ countdown }} segundos para prosseguir...
+      </div>
+
+     
+      <button class="btn btn-lg btn-primary fw-bold py-3 px-5 rounded-pill shadow-sm" (click)="goToLogin()" [disabled]="!allowNavigation">
+        Entrar no Sistema
+      </button>
+    </div>
+  </div>
+</main>
+
