@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "desafio-final-senai-ford-enter": {
+    "ford-connect": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/ford-connect",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -94,11 +95,11 @@
               {
                 "glob": "**/*",
                 "input": "public",
-                 "output": "/"
+                "output": "/"
               }
             ],
             "styles": [
-             "src/styles.css"
+              "src/styles.css"
             ]
           }
         }
