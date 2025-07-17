@@ -7,36 +7,21 @@
     </div>
 
     <!-- Menu de navegação principal (pode ser oculto em mobile e revelado pela sidebar) -->
-    <nav class="main-nav d-none d-md-block">
-      <ul class="nav-list">
-        <li>
-          <!-- Link para Home. Será habilitado/desabilitado via lógica TS. -->
-          <a
-            [routerLink]="isHomeLinkEnabled ? ['/home'] : null"
-            [class.disabled-link]="!isHomeLinkEnabled"
-            [attr.tabindex]="isHomeLinkEnabled ? null : -1"
-            (click)="handleHomeLinkClick($event)"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <!-- Link para Dashboard (sempre habilitado, mas protegido por AuthGuard) -->
-          <a [routerLink]="['/dashboard']">Dashboard</a>
-        </li>
-        <!-- Adicione outros links aqui conforme o plano (Vendas, Comparativa, Fale Conosco, Área do Usuário) -->
-      </ul>
-    </nav>
-
     <!-- Ícone de menu hambúrguer para mobile (pode abrir a sidebar) -->
     <div class="menu-open-icon d-md-none" (click)="toggleSidebar()">
-      &#9776; <!-- Caractere Unicode para o ícone de hambúrguer -->
+      &#9776;
+      <!-- Caractere Unicode para o ícone de hambúrguer -->
     </div>
   </div>
 
   <!-- Sidebar (menu lateral) -->
   <!-- A classe 'sidebar-collapsed' controla o estado recolhido/expandido -->
-  <div class="sidebar" [ngClass]="{'sidebar-collapsed': !isSidebarOpen, 'sidebar-expanded': isSidebarOpen}" (mouseenter)="openSidebar()" (mouseleave)="closeSidebar()">
+  <div
+    class="sidebar"
+    [ngClass]="{'sidebar-collapsed': !isSidebarOpen, 'sidebar-expanded': isSidebarOpen}"
+    (mouseenter)="openSidebar()"
+    (mouseleave)="closeSidebar()"
+  >
     <div class="sidebar-header">
       <div class="sidebar-logo-wrapper">
         <!-- Logo Ford na sidebar -->
@@ -63,6 +48,9 @@
   </div>
 
   <!-- Overlay que aparece quando a sidebar está aberta (para fechar ao clicar fora) -->
-  <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+  <div
+    class="sidebar-overlay"
+    *ngIf="isSidebarOpen"
+    (click)="closeSidebar()"
+  ></div>
 </div>
-
