@@ -53,4 +53,47 @@
       <span class="visually-hidden">Próximo</span>
     </button>
   </div>
+
+  <!-- Chamadas para Ação (CTAs) adicionais abaixo do carrossel -->
+  <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+    <!-- Links para outras seções da Home (serão criadas posteriormente) -->
+    <a [routerLink]="['/home/compare']" class="btn btn-outline-primary btn-lg rounded-pill shadow-sm">Comparar Modelos</a>
+    <a [routerLink]="['/home/contact']" class="btn btn-outline-secondary btn-lg rounded-pill shadow-sm">Fale Conosco</a>
+    <a [routerLink]="['/home/user-area']" class="btn btn-outline-info btn-lg rounded-pill shadow-sm">Minha Área</a>
+  </div>
+
+  <!-- Novo parágrafo abaixo do carrossel e CTAs existentes -->
+  <p class="text-center lead mt-5 mb-4 px-3">
+    Aqui você fica atualizado com tudo que há de novo no universo Ford.
+  </p>
+
+  <!-- Nova seção de cards de serviços -->
+  <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap w-100" style="max-width: 900px;">
+    <!-- Card 1: Oficinas Autorizadas -->
+    <div class="card text-center shadow-sm rounded-3 service-card">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Oficinas Autorizadas</h5>
+        <p class="card-text text-secondary">Encontre o serviço especializado Ford mais próximo de você.</p>
+        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Buscar Oficina</a>
+      </div>
+    </div>
+
+    <!-- Card 2: Encontre uma Concessionária -->
+    <div class="card text-center shadow-sm rounded-3 service-card">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Encontre uma Concessionária</h5>
+        <p class="card-text text-secondary">Visite nossas lojas e conheça toda a linha Ford.</p>
+        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Ver Concessionárias</a>
+      </div>
+    </div>
+
+    <!-- Card 3: Agende um Test Drive -->
+    <div class="card text-center shadow-sm rounded-3 service-card">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Agende um Test Drive</h5>
+        <p class="card-text text-secondary">Experimente a emoção de dirigir seu novo Ford.</p>
+        <a [routerLink]="['/home/contact']" class="btn btn-sm btn-outline-primary rounded-pill">Agendar Test Drive</a>
+      </div>
+    </div>
+  </div>
 </div>

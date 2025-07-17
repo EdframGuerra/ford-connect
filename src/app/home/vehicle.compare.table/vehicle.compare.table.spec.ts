@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeLayout } from './home-layout';
+import { VehicleCompareTable } from './vehicle.compare.table';
 
-describe('HomeLayout', () => {
-  let component: HomeLayout;
-  let fixture: ComponentFixture<HomeLayout>;
+describe('VehicleCompareTable', () => {
+  let component: VehicleCompareTable;
+  let fixture: ComponentFixture<VehicleCompareTable>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeLayout]
+      declarations: [VehicleCompareTable]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeLayout);
+    fixture = TestBed.createComponent(VehicleCompareTable);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
