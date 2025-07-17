@@ -6,19 +6,19 @@ import { App } from './app'; // Assuming 'App' is your root component
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// Importação CORRETA do LandingPageModule
-// O caminho deve ser relativo ao 'app.module.ts' e apontar para o arquivo do módulo.
 import { LandingPageModule } from './landing.page/landing.page.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [App],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LandingPageModule, // Certifique-se que está importado aqui
+    LandingPageModule, 
     HttpClientModule,
     ReactiveFormsModule,
-    // SharedModule // Keep this commented out for now as per previous discussions
+    SharedModule,
+    
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
